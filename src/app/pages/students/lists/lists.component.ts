@@ -1,19 +1,23 @@
 import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
+import { Http } from '@angular/http'
 
 import { SmartTableData } from '../../../@core/data/smart-table';
+import { HttpClient } from '@angular/common/http';
+import { getLocaleDateFormat } from '@angular/common';
 
 @Component({
-  selector: 'ngx-smart-table',
-  templateUrl: './smart-table.component.html',
+  selector: 'ngx-lists',
+  templateUrl: './lists.component.html',
   styles: [`
   nb-card {
     transform: translate3d(0, 0, 0);
   }
-  `],
+  `]
 })
-export class SmartTableComponent {
-
+export class ListsComponent {
+data: any
+newWindow: any
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
@@ -21,7 +25,7 @@ export class SmartTableComponent {
       cancelButtonContent: '<i class="nb-close"></i>',
     },
     edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
+      editButtonContent: '<i class="nb-person"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
     },
@@ -30,28 +34,28 @@ export class SmartTableComponent {
       confirmDelete: true,
     },
     columns: {
-      id: {
+      std_id: {
         title: 'ID',
         type: 'number',
       },
-      firstName: {
+      first_name: {
         title: 'First Name',
         type: 'string',
       },
-      lastName: {
+      last_name: {
         title: 'Last Name',
         type: 'string',
       },
-      username: {
-        title: 'Username',
+      email: {
+        title: 'Email',
         type: 'string',
       },
-      email: {
-        title: 'E-mail',
+      phone_number: {
+        title: 'Phone Number',
         type: 'string',
       },
       age: {
-        title: 'Age',
+        title: 'Section',
         type: 'number',
       },
     },
@@ -59,16 +63,23 @@ export class SmartTableComponent {
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
-  }
+  constructor(private service: SmartTableData , private http: HttpClient) {
+    this.http.get('http://localhost:3000/students').subscribe((res)=>{
+      this.data = res;
+      this.source.load(this.data);
+  });
+    
+    
+   }
 
-  onDeleteConfirm(event): void {
+  
+
+   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
       event.confirm.resolve();
     } else {
       event.confirm.reject();
     }
   }
+
 }

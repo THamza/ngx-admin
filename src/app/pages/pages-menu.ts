@@ -2,27 +2,103 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'E-commerce',
-    icon: 'nb-e-commerce',
+    title: 'Dashboard',
+    icon: 'nb-layout-one-column',
     link: '/pages/dashboard',
     home: true,
   },
+  // {
+  //   title: 'IoT Dashboard',
+  //   icon: 'nb-home',
+  //   link: '/pages/iot-dashboard',
+  // },
   {
-    title: 'IoT Dashboard',
-    icon: 'nb-home',
-    link: '/pages/iot-dashboard',
-  },
-  {
-    title: 'FEATURES',
+    title: 'Our Database',
     group: true,
   },
   {
-    title: 'Extra Components',
+    title: 'Students',
+    icon: 'nb-person',
+    children: [
+      {
+        title: 'Student List',
+        link: '/pages/students/lists',
+      },
+      {
+        title: 'Meetings',
+        link: '/pages/students/meetings',
+      },
+      {
+        title: 'Academics',
+        link: '/pages/students/academics',
+      },
+      {
+        title: 'Housing Data',
+        link: '/students/housing',
+      },
+    ],
+  },
+  {
+    title: 'CLE Coordination',
+    icon: 'nb-loop-circled',
+    children: [
+      {
+        title: 'Tutoring Sessions',
+        link: '/cle/tutoring',
+      },
+      {
+        title: 'Mentoring Sessions',
+        link: '/cle/mentoring',
+      },
+      {
+        title: 'CLE Messages',
+        link: '/cle/messages',
+      },
+    ],
+  },
+  {
+    title: 'FYE Activities',
+    icon: 'nb-play',
+    children: [
+      {
+        title: 'Seminars Attendance',
+        link: '/fye/seminars',
+      },
+      {
+        title: 'Event Manager',
+        link: '/fye/event-manager',
+      }
+    ],
+  },
+  {
+    title: 'SAO Coordination',
+    icon: 'nb-star',
+    children: [
+      {
+        title: 'Active Members',
+        link: '/fye/seminars',
+      },
+      {
+        title: 'Statistics',
+        link: '/fye/events',
+      }
+    ],
+  },
+  {
+    title: 'Data Importing',
+    group: true,
+  },
+  {
+    title: 'CLE DB Connection',
     icon: 'nb-star',
     children: [
       {
         title: 'Calendar',
         link: '/pages/extra-components/calendar',
+      },
+      {
+        title: 'Students',
+        link: '/pages/students/',
       },
       {
         title: 'Stepper',
@@ -75,7 +151,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'Forms',
+    title: 'MyFYE Connection',
     icon: 'nb-compose',
     children: [
       {
@@ -97,7 +173,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'UI Features',
+    title: 'Jenzabar Connection',
     icon: 'nb-keypad',
     link: '/pages/ui-features',
     children: [
@@ -120,8 +196,8 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'Modal & Overlays',
-    icon: 'nb-layout-default',
+    title: 'Add new connection',
+    icon: 'nb-plus-circled',
     children: [
       {
         title: 'Dialog',
@@ -144,6 +220,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/modal-overlays/tooltip',
       },
     ],
+  },
+  {
+    title: 'System Logs',
+    group: true,
   },
   {
     title: 'Bootstrap',

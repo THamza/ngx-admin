@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-6 col-md-4">
+        <nb-card>
+          <nb-card-header>Students per school - Fall 2019</nb-card-header>
+          <nb-card-body>
+              <div class="card card-accent-info">
+                  <div class="card-body">
+                    <div class="mt-0">
+                          <div echarts [options]="options" class="demo-chart"></div>
+                    </div>
+                  </div>
+                </div>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    
+      <div class="col-6 col-md-4">
+          <nb-card>
+            <nb-card-header>Current Withdrawals - Fall 2019</nb-card-header>
+            <nb-card-body>
+                <div class="card card-accent-info">
+                    <div class="card-body">
+                      <div class="mt-0">
+                            <div echarts [options]="options2" class="demo-chart"></div>
+                      </div>
+                    </div>
+                  </div>
+            </nb-card-body>
+          </nb-card>
+        </div>
+
+        <div class="col-6 col-md-4">
+            <nb-card>
+              <nb-card-header>Alerts</nb-card-header>
+              <nb-card-body>
+                          <nb-alert status="danger">Imad ARCHID (ID: 73581) withdrawed from CSC 1400 with a WF</nb-alert>
+                          <nb-alert status="danger">Hamza TOUHS (ID: 68520) withdrawed from MTH 1215 with a W</nb-alert>
+                          <nb-alert status="warning">Yassine BENHADDOU (ID: 65520) is in status: LAST CHANCE</nb-alert>
+              </nb-card-body>
+            </nb-card>
+          </div>
+
+        
+        <div class="col">
+            <nb-card>
+              <nb-card-header>Academic Data by Student</nb-card-header>
+              <nb-card-body>
+                  <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+              </nb-card-body>
+            </nb-card>
+          </div>
+
+      
+</div>
